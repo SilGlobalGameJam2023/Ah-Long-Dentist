@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class IsHighlighted : MonoBehaviour
 {
+    [SerializeField]
     private Transform highlight;
-    private Transform selection;
+    private GameObject curTooth;
+    private bool isHighlighted = false;
+    private bool success = false;
+    private bool startTimer = false;
+    private float timer = 2.0f;
+    private float originalTimer;
 
+    private void Start()
+    {
+        originalTimer = timer;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(highlight != null)
+        isHighlighted = true;
+        curTooth = other.gameObject;
+
+        if (highlight != null)
         {
             highlight.gameObject.GetComponent<Outline>().enabled = false;
             highlight = null;
@@ -19,7 +32,7 @@ public class IsHighlighted : MonoBehaviour
         if (other.gameObject.tag == ("Tooth"))
         {
             highlight = other.gameObject.transform;
-            if(highlight.CompareTag("Tooth") && highlight != selection)
+            if(highlight.CompareTag("Tooth"))
             {
                 if(highlight.gameObject.GetComponent<Outline>() != null)
                 {
@@ -38,29 +51,6 @@ public class IsHighlighted : MonoBehaviour
                 highlight = null;
             }
         }
-
-        if(Input.GetMouseButtonDown(0))
-        {
-            if(highlight)
-            {
-                if (selection != null)
-                {
-                    selection.gameObject.GetComponent<Outline>().enabled = false;
-                }
-                selection = other.gameObject.transform;
-                selection.gameObject.GetComponent<Outline>().enabled = true;
-                highlight = null;
-            }
-            else
-            {
-                if(selection)
-                {
-                    selection.gameObject.GetComponent<Outline>().enabled = false;
-                    selection = null;
-                }
-            }
-        }
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -68,6 +58,36 @@ public class IsHighlighted : MonoBehaviour
         if (other.gameObject.tag == ("Tooth"))
         {
             highlight.gameObject.GetComponent<Outline>().enabled = false;
+
+            isHighlighted = false;
+            curTooth = null;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && curTooth != null)
+        {
+            startTimer = true;
+        }
+        else if(curTooth == null && success)
+        {
+            success = false;
+            startTimer = false;
+            timer = originalTimer;
+        }
+
+        if (startTimer == true && success == false && curTooth != null)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if(timer <= 0.0f)
+        {
+            success = true;
+            timer = originalTimer;
+            success = false;
+            Destroy(curTooth);
         }
     }
 }
