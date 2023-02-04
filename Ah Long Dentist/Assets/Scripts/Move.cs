@@ -17,10 +17,13 @@ public class Move : MonoBehaviour
     {
         float leftrightInput = Input.GetAxis("Mouse X");
         float forwardbackwardInput = Input.GetAxis("Mouse Y");
-        float updownInput = Input.GetAxis("Jump");
+        float updownInput = Input.GetAxis("Vertical");
+        float rotateInput = Input.GetAxis("Horizontal");
 
-        Vector3 direction = new Vector3(leftrightInput, updownInput, forwardbackwardInput);
+        Vector3 direction = new Vector3(leftrightInput, forwardbackwardInput, updownInput);
+        Vector3 rotation = new Vector3(0.0f, 0.0f, rotateInput * 10.0f);
 
         transform.Translate(direction * speed * Time.deltaTime);
+        transform.Rotate(rotation * speed * Time.deltaTime);
     }
 }
