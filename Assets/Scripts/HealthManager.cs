@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class HealthManager : MonoBehaviour
     int currentHealth;
     bool isShielded = false;
     bool isAirBubbled = false;
-    bool isBlind = false;
+    public bool isBlind = false;
+
+    public Slider slider;
+
+    public MouthAttacks mouthAttack;
 
     [Header("Abilities")]
     public float ShieldSpellCooldown = 3;
@@ -29,6 +34,16 @@ public class HealthManager : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        slider.maxValue = maxHealth;
+        slider.value = maxHealth;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q)) Spell_Shield();
+        if (Input.GetKeyDown(KeyCode.W)) Spell_AirBubble();
+        if (Input.GetKeyDown(KeyCode.E)) Spell_Clear();
+        
     }
 
     public void TakeDamage(int damage)
@@ -36,6 +51,9 @@ public class HealthManager : MonoBehaviour
         if (!isShielded)
         {
             currentHealth -= damage;
+            UpdateHealthBar();
+
+            Debug.Log("Current Health:" + currentHealth);
             if (currentHealth <= 0)
             {
                 Die();
@@ -48,6 +66,8 @@ public class HealthManager : MonoBehaviour
         if (!isAirBubbled)
         {
             currentHealth -= damagePerSecond;
+            UpdateHealthBar();
+
             if (currentHealth <= 0)
             {
                 Die();
@@ -55,9 +75,19 @@ public class HealthManager : MonoBehaviour
         }
     }
 
+    void UpdateHealthBar()
+    {
+        slider.value = currentHealth;
+    }
+
     void Die()
     {
 
+    }
+
+    void ResetIsAttacking()
+    {
+        mouthAttack.resetIsAttacking();
     }
 
     void Spell_Shield()
@@ -66,6 +96,7 @@ public class HealthManager : MonoBehaviour
         {
             if (shieldSpellCoroutine != null) StopCoroutine(shieldSpellCoroutine);
             shieldSpellCoroutine = StartCoroutine(ShieldCooldownRoutine());
+            Debug.Log("shielded");
         }
     }
 
@@ -84,6 +115,7 @@ public class HealthManager : MonoBehaviour
         {
             if (clearSpellCoroutine != null) StopCoroutine(clearSpellCoroutine);
             clearSpellCoroutine = StartCoroutine(ClearCooldownRoutine());
+            mouthAttack.spitGameObject.SetActive(false);
         }
     }
 
@@ -105,6 +137,8 @@ public class HealthManager : MonoBehaviour
             if (timer >= ShieldSpellDuration & isShielded)
             {
                 isShielded = false;
+                Debug.Log("not shielded");
+
             }
             yield return null;
         }
