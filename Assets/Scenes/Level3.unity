@@ -944,7 +944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4579631246891108777, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
       propertyPath: attackCooldown
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4579631246891108777, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
       propertyPath: spitGameObject

@@ -914,7 +914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4579631246891108777, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
       propertyPath: canSpit
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4579631246891108777, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
       propertyPath: canChomp
@@ -922,11 +922,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4579631246891108777, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
       propertyPath: canBadBreath
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4579631246891108777, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
       propertyPath: attackCooldown
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4579631246891108777, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
       propertyPath: spitGameObject
