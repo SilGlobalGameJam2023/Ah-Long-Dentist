@@ -8574,6 +8574,7 @@ GameObject:
   - component: {fileID: 4579631246891108782}
   - component: {fileID: 4579631246891108783}
   - component: {fileID: 4579631246891108777}
+  - component: {fileID: 3846155671663705248}
   m_Layer: 0
   m_Name: TopJaw
   m_TagString: Untagged
@@ -8719,6 +8720,10 @@ MonoBehaviour:
   isBlind: 0
   slider: {fileID: 0}
   mouthAttack: {fileID: 4579631246891108777}
+  hurtSFX: {fileID: 8300000, guid: c023c134e5ba3034dbd92c967c43bf6d, type: 3}
+  shieldSFX: {fileID: 8300000, guid: 0f718cfa6c77af3419283246cf92f6e0, type: 3}
+  maskSFX: {fileID: 8300000, guid: f2f8476fc33666e478df9eea6a7094a1, type: 3}
+  clearSFX: {fileID: 8300000, guid: de86258663e013d4499dce9c3c00d219, type: 3}
   ShieldSpellCooldown: 3
   ShieldSpellDuration: 1.2
   AirBubbleSpellCooldown: 5
@@ -8739,6 +8744,10 @@ MonoBehaviour:
   spitGameObject: {fileID: 0}
   spitDuration: 3
   healthManager: {fileID: 4579631246891108783}
+  objectiveManger: {fileID: 0}
+  nomSFX: {fileID: 8300000, guid: 0f9a90ef807bc7b429c88940d4e324c7, type: 3}
+  coughSFX: {fileID: 8300000, guid: 0a559ac840003444b8e35225df006d1e, type: 3}
+  badBreathSFX: {fileID: 8300000, guid: fc5164fc1d4714743bf585df1f6ed80d, type: 3}
   canChomp: 1
   canSpit: 1
   canBadBreath: 1
@@ -8746,6 +8755,102 @@ MonoBehaviour:
   badBreathParticleSystem: {fileID: 4579631245829681540}
   attackCooldown: 2
   chompAnimator: {fileID: 4579631246891108782}
+--- !u!82 &3846155671663705248
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579631246891108768}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4579631247003725837
 GameObject:
   m_ObjectHideFlags: 0

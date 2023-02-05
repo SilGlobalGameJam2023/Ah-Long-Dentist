@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class IsHighlighted : MonoBehaviour
 {
+    public ObjectiveManager objectiveManager;
+
     [SerializeField]
     private Transform highlight;
     private GameObject curTooth;
@@ -88,6 +90,7 @@ public class IsHighlighted : MonoBehaviour
             timer = originalTimer;
             success = false;
             curTooth.gameObject.SetActive(false);
+            objectiveManager.removeTooth();
         }
     }
 }

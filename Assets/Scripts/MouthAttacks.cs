@@ -8,6 +8,12 @@ public class MouthAttacks : MonoBehaviour
     public GameObject spitGameObject;
     public float spitDuration = 3f;
     public HealthManager healthManager;
+    public ObjectiveManager objectiveManger;
+
+    AudioSource audioSource;
+    public AudioClip nomSFX;
+    public AudioClip coughSFX;
+    public AudioClip badBreathSFX;
 
     public bool canChomp = true;
     public bool canSpit = false;
@@ -27,12 +33,15 @@ public class MouthAttacks : MonoBehaviour
         if (canChomp) attacksList.Add(0);
         if (canSpit) attacksList.Add(1);
         if (canBadBreath) attacksList.Add(2);
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        //Debug.Log("CurrentAttackCooldown:" + currentAttackCooldown);
+        if (attacksList.Count == 0) return;
+        if (objectiveManger.objectiveCompleted) return;
+
+
         if (!isAttacking) currentAttackCooldown += Time.deltaTime;
 
         if (currentAttackCooldown >= attackCooldown)
@@ -69,6 +78,7 @@ public class MouthAttacks : MonoBehaviour
     void Attack_Chomp()
     {
         Debug.Log("Chomp");
+        audioSource.PlayOneShot(nomSFX);
         chompAnimator.Play("Base Layer.Chomp", 0);
     }
 
@@ -77,6 +87,7 @@ public class MouthAttacks : MonoBehaviour
         Debug.Log("Spit");
         healthManager.isBlind = true;
         spitGameObject.SetActive(true);
+        audioSource.PlayOneShot(coughSFX);
         StartCoroutine(SpitCooldownRoutine());
         isAttacking = false;
     }
@@ -84,6 +95,7 @@ public class MouthAttacks : MonoBehaviour
     void Attack_BadBreath()
     {
         Debug.Log("BadBreath");
+        audioSource.PlayOneShot(badBreathSFX);
         StartCoroutine(BadBreathRoutine());
     }
 

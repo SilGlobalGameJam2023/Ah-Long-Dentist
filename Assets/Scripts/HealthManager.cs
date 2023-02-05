@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class HealthManager : MonoBehaviour
     public Slider slider;
 
     public MouthAttacks mouthAttack;
+
+    AudioSource audioSource;
+    public AudioClip hurtSFX;
+    public AudioClip shieldSFX;
+    public AudioClip maskSFX;
+    public AudioClip clearSFX;
 
     [Header("Abilities")]
     public float ShieldSpellCooldown = 3;
@@ -36,6 +43,7 @@ public class HealthManager : MonoBehaviour
         currentHealth = maxHealth;
         slider.maxValue = maxHealth;
         slider.value = maxHealth;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -52,6 +60,7 @@ public class HealthManager : MonoBehaviour
         {
             currentHealth -= damage;
             UpdateHealthBar();
+            audioSource.PlayOneShot(hurtSFX);
 
             Debug.Log("Current Health:" + currentHealth);
             if (currentHealth <= 0)
@@ -67,6 +76,7 @@ public class HealthManager : MonoBehaviour
         {
             currentHealth -= damagePerSecond;
             UpdateHealthBar();
+            audioSource.PlayOneShot(hurtSFX);
 
             if (currentHealth <= 0)
             {
@@ -82,7 +92,7 @@ public class HealthManager : MonoBehaviour
 
     void Die()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void ResetIsAttacking()
@@ -96,6 +106,8 @@ public class HealthManager : MonoBehaviour
         {
             if (shieldSpellCoroutine != null) StopCoroutine(shieldSpellCoroutine);
             shieldSpellCoroutine = StartCoroutine(ShieldCooldownRoutine());
+            audioSource.PlayOneShot(shieldSFX);
+
             Debug.Log("shielded");
         }
     }
@@ -106,6 +118,8 @@ public class HealthManager : MonoBehaviour
         {
             if (airBubbleSpellCoroutine != null) StopCoroutine(airBubbleSpellCoroutine);
             airBubbleSpellCoroutine = StartCoroutine(AirBubbleCooldownRoutine());
+            audioSource.PlayOneShot(maskSFX);
+
         }
     }
 
@@ -116,6 +130,8 @@ public class HealthManager : MonoBehaviour
             if (clearSpellCoroutine != null) StopCoroutine(clearSpellCoroutine);
             clearSpellCoroutine = StartCoroutine(ClearCooldownRoutine());
             mouthAttack.spitGameObject.SetActive(false);
+            audioSource.PlayOneShot(clearSFX);
+
         }
     }
 
