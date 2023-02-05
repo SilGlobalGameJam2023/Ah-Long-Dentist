@@ -90,7 +90,7 @@ public class IsHighlighted : MonoBehaviour
             timer = originalTimer;
             success = false;
             curTooth.gameObject.SetActive(false);
-            objectiveManager.removeTooth();
+            if(curTooth.gameObject.GetComponent<GoldTooth>() != null) objectiveManager.removeTooth();
         }
     }
 }

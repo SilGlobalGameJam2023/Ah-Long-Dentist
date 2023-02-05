@@ -29,7 +29,6 @@ public class ObjectiveManager : MonoBehaviour
         }
     }
 
-
     /*
     void Update()
     {

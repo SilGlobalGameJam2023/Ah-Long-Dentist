@@ -240,6 +240,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &363894513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579631246802526696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c8fbfc972a5b74bbc6de2aa760a578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +356,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4579631246860172873, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
   m_PrefabInstance: {fileID: 4579631246802526693}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &815791858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815791857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c8fbfc972a5b74bbc6de2aa760a578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,9 +699,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Instructions
       objectReference: {fileID: 0}
+    - target: {fileID: 882784418928307778, guid: ef200dc9bed91a740ba48e5e6fd141db, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1035378775684340475, guid: ef200dc9bed91a740ba48e5e6fd141db, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882668150614556345, guid: ef200dc9bed91a740ba48e5e6fd141db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5446058660242744539}
+    - target: {fileID: 4882668150614556345, guid: ef200dc9bed91a740ba48e5e6fd141db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: nextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882668150614556345, guid: ef200dc9bed91a740ba48e5e6fd141db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ObjectiveManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882668150614556345, guid: ef200dc9bed91a740ba48e5e6fd141db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8368503343170703512, guid: ef200dc9bed91a740ba48e5e6fd141db, type: 3}
       propertyPath: m_IsActive
@@ -969,7 +1013,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4579631245962254184, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 363894513}
+    - targetCorrespondingSourceObject: {fileID: 4579631245927292208, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4579631246802526702}
+    - targetCorrespondingSourceObject: {fileID: 4579631246341637178, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4579631246802526701}
+    - targetCorrespondingSourceObject: {fileID: 4579631247003725837, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4579631246802526699}
+    - targetCorrespondingSourceObject: {fileID: 4579631246860172873, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 815791858}
+    - targetCorrespondingSourceObject: {fileID: 4579631246615774819, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4579631246802526700}
   m_SourcePrefab: {fileID: 100100000, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
 --- !u!1 &4579631246802526694 stripped
 GameObject:
@@ -996,6 +1058,54 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4579631246341637178, guid: 7d43f53d41633144195c1ae0629ac2cf, type: 3}
   m_PrefabInstance: {fileID: 4579631246802526693}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4579631246802526699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579631246802526694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c8fbfc972a5b74bbc6de2aa760a578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4579631246802526700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579631246802526695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c8fbfc972a5b74bbc6de2aa760a578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4579631246802526701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579631246802526698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c8fbfc972a5b74bbc6de2aa760a578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4579631246802526702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579631246802526697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c8fbfc972a5b74bbc6de2aa760a578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5446058660242744538
 PrefabInstance:
   m_ObjectHideFlags: 0
