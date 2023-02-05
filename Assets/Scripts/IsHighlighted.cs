@@ -87,7 +87,7 @@ public class IsHighlighted : MonoBehaviour
             success = true;
             timer = originalTimer;
             success = false;
-            Destroy(curTooth);
+            curTooth.gameObject.SetActive(false);
         }
     }
 }

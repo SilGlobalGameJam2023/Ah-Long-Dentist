@@ -40,9 +40,9 @@ public class HealthManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) Spell_Shield();
-        if (Input.GetKeyDown(KeyCode.W)) Spell_AirBubble();
-        if (Input.GetKeyDown(KeyCode.E)) Spell_Clear();
+        if (Input.GetKeyDown(KeyCode.Alpha1)) Spell_Shield();
+        if (Input.GetKeyDown(KeyCode.Alpha2)) Spell_AirBubble();
+        if (Input.GetKeyDown(KeyCode.Alpha3)) Spell_Clear();
         
     }
 
